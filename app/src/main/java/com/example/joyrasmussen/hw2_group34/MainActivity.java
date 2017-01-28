@@ -10,6 +10,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     List<Movie> movieList;
+    public static final int REQ_CODE_ADD = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         movieList = new ArrayList<Movie>();
@@ -22,9 +24,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQ_CODE_ADD){
+
+
+
+        }
+    }
+
     public void onAddClickListener(View v){
         Intent addIntent = new Intent(MainActivity.this, AddMovie.class);
-        startActivity(addIntent);
+        startActivityForResult(addIntent,REQ_CODE_ADD );
+
 
 
     }
