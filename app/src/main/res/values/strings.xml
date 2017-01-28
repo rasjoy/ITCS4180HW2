@@ -12,4 +12,13 @@
     <string name="textYear">Year:</string>
     <string name="stringIMDB">IMDB:</string>
     <string name="addMovieButton">Add Movie</string>
+    <string name="textViewMoviesByYearLabel">Movies By Year</string>
+    <string name="textViewMoviesByRatingLabel">Movies By Rating</string>
+    <string name="textViewTitle">Title:</string>
+    <string name="textViewDesc">Description:</string>
+    <string name="textViewGenre">Genre:</string>
+    <string name="textViewRating">Rating:</string>
+    <string name="finishButton">Finish</string>
+    <string name="textViewYear">Year:</string>
+    <string name="textViewIMDB">IMDB:</string>
 </resources>
