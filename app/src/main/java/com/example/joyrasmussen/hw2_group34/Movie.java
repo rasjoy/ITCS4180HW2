@@ -11,7 +11,7 @@ import static android.R.attr.x;
  * Created by joyrasmussen on 1/24/17.
  */
 
-public class Movie implements Parcelable{
+public class Movie implements Parcelable, Serializable{
 
     private String name, description, genre, imdb;
     private int year;
@@ -26,7 +26,15 @@ public class Movie implements Parcelable{
         this.year = year;
         this.rating = rating;
     }
+    public void updateMovie(String name, String description, String genre, String imdb, int year, double rating){
+        this.name = name;
+        this.description = description;
+        this.genre = genre;
+        this.imdb = imdb;
+        this.year = year;
+        this.rating = rating;
 
+    }
     protected Movie(Parcel in) {
         name = in.readString();
         description = in.readString();
