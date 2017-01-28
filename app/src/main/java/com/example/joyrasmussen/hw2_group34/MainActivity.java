@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         movieList.add(new Movie("Toy Story", "There are toys","Other", "www.imdb.com", 4, 1995));
         movieList.add(new Movie("Finding Nemo","Just keep swimming", "Comedy", "www.imdb.com", 3, 2003));
         movieList.add(new Movie("Star Wars: Episode 1 - the Phantom Menace", "This movie should have never been made", "Action", "www.imdb.com", 1, 1999));
-        
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }

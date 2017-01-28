@@ -18,6 +18,74 @@ public class Movie implements Parcelable, Serializable{
     private double rating;
 
 
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", genre='" + genre + '\'' +
+                ", imdb='" + imdb + '\'' +
+                ", year=" + year +
+                ", rating=" + rating +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Movie movie = (Movie) o;
+
+        if (year != movie.year) return false;
+        if (Double.compare(movie.rating, rating) != 0) return false;
+        if (!name.equals(movie.name)) return false;
+        if (description != null ? !description.equals(movie.description) : movie.description != null)
+            return false;
+        if (!genre.equals(movie.genre)) return false;
+        return imdb != null ? imdb.equals(movie.imdb) : movie.imdb == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = name.hashCode();
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + genre.hashCode();
+        result = 31 * result + (imdb != null ? imdb.hashCode() : 0);
+        result = 31 * result + year;
+        temp = Double.doubleToLongBits(rating);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    public double getRating() {
+
+        return rating;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getImdb() {
+        return imdb;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
     public Movie(String name, String description, String genre, String imdb, int year, double rating) {
         this.name = name;
         this.description = description;
