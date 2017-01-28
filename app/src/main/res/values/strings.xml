@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Favorite Movies</string>
+    <string name="text_add">Add Movie</string>
+    <string name="edit_text">Edit</string>
+    <string name="Delete_text">Delete Movie</string>
+    <string name="show_yr_text">Show List by Year</string>
+    <string name="show_rat_text">Show List by Rating</string>
+    <string name="addName">Name:</string>
+    <string name="addDescription">Description:</string>
+    <string name="addGenre">Genre:</string>
+    <string name="addRating">Rating:</string>
+    <string name="textYear">Year:</string>
+    <string name="stringIMDB">IMDB:</string>
+    <string name="addMovieButton">Add Movie</string>
+</resources>

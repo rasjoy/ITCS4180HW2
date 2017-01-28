@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.joyrasmussen.hw2_group34.MainActivity">
+
+    <Button
+        android:text="@string/text_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:id="@+id/AddButton"
+        android:ems="10"
+        android:onClick="onAddClickListener"/>
+
+    <Button
+        android:text="@string/show_yr_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:id="@+id/button4"
+        android:ems="10"
+        android:layout_below="@+id/DeleteButton"
+        android:layout_alignLeft="@+id/DeleteButton"
+        android:layout_alignStart="@+id/DeleteButton" />
+
+    <Button
+        android:text="@string/edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:id="@+id/EditButton"
+        android:ems="10"
+        android:layout_below="@+id/AddButton"
+        android:layout_alignLeft="@+id/AddButton"
+        android:layout_alignStart="@+id/AddButton" />
+
+    <Button
+        android:text="@string/Delete_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DeleteButton"
+        android:ems="10"
+        android:layout_below="@+id/EditButton"
+        android:layout_alignLeft="@+id/EditButton"
+        android:layout_alignStart="@+id/EditButton"
+        android:layout_marginTop="18dp" />
+
+    <Button
+        android:text="@string/show_rat_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:id="@+id/button5"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
