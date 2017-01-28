@@ -9,35 +9,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    List<Movie> movieList;
-    public static final int REQ_CODE_ADD = 100;
-
+    ArrayList<Movie> movieList; //Declare as ArrayList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         movieList = new ArrayList<Movie>();
-        movieList.add(new Movie("Space Jam", "So 90s", "Comedy","www.imbd.com", 5, 1996));
-        movieList.add(new Movie("Toy Story", "There are toys","Other", "www.imdb.com", 4, 1995));
-        movieList.add(new Movie("Finding Nemo","Just keep swimming", "Comedy", "www.imdb.com", 3, 2003));
-        movieList.add(new Movie("Star Wars: Episode 1 - the Phantom Menace", "This movie should have never been made", "Action", "www.imdb.com", 1, 1999));
+        movieList.add(new Movie("Space Jam", "So 90s", "Comedy","www.imbd.com", 1996, 5));
+        movieList.add(new Movie("Toy Story", "There are toys","Other", "www.imdb.com", 1995, 4));
+        movieList.add(new Movie("Finding Nemo","Just keep swimming", "Comedy", "www.imdb.com", 2003, 3));
+        movieList.add(new Movie("Star Wars: Episode 1 - the Phantom Menace", "This movie should have never been made", "Action", "www.imdb.com", 1999, 1));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == REQ_CODE_ADD){
-
-
-
-        }
-    }
-
     public void onAddClickListener(View v){
         Intent addIntent = new Intent(MainActivity.this, AddMovie.class);
-        startActivityForResult(addIntent,REQ_CODE_ADD );
+        startActivity(addIntent);
 
 
+    }
 
+    public void showListByYear(View view){
+
+        //Implicit intent creation
+        Intent i = new Intent("com.example.joyrasmussen.hw2_group34.intent.action.VIEWBYYEAR");
+        i.putExtra("movieList", movieList);
+        startActivity(i);
+
+    }
+
+    public void showListByRating(View view){
+        //Implicit intent creation
+        Intent i = new Intent("com.example.joyrasmussen.hw2_group34.intent.action.VIEWBYRATING");
+        i.putExtra("movieList", movieList);
+        startActivity(i);
     }
 }

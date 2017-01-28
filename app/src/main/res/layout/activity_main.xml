@@ -30,7 +30,8 @@
         android:ems="10"
         android:layout_below="@+id/DeleteButton"
         android:layout_alignLeft="@+id/DeleteButton"
-        android:layout_alignStart="@+id/DeleteButton" />
+        android:layout_alignStart="@+id/DeleteButton"
+        android:onClick="showListByYear" />
 
     <Button
         android:text="@string/edit_text"
@@ -61,5 +62,6 @@
         android:layout_marginTop="18dp"
         android:id="@+id/button5"
         android:layout_below="@+id/button4"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="showListByRating" />
 </RelativeLayout>
