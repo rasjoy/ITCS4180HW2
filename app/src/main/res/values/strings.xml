@@ -21,4 +21,12 @@
     <string name="finishButton">Finish</string>
     <string name="textViewYear">Year:</string>
     <string name="textViewIMDB">IMDB:</string>
+    <string name="default_rating">1</string>
+    <string name="prompt">Select</string>
+    <string name="save">Save Changes</string>
+    <string name="editIntent">Edit Movie</string>
+    <string name="addIntent">Add Movie</string>
+    <string name="yearIntent">Movie By Year</string>
+    <string name="rateIntent">Movie By Rating</string>
+    <string name="editDialog">Pick a Movie</string>
 </resources>

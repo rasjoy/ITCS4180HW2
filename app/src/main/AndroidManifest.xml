@@ -15,21 +15,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddMovie" />
-        <activity android:name=".MoviesByYearActivity">
+        <activity android:name=".AddMovie" android:label="@string/addIntent" />
+        <activity android:name=".MoviesByYearActivity" android:label="@string/yearIntent">
             <intent-filter>
-                <action android:name="com.example.joyrasmussen.hw2_group34.intent.action.VIEWBYYEAR"></action>
+                <action android:name="com.example.joyrasmussen.hw2_group34.intent.action.VIEWBYYEAR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MoviesByRatingActivity" android:label="@string/rateIntent">
+            <intent-filter>
+                <action android:name="com.example.joyrasmussen.hw2_group34.intent.action.VIEWBYRATING" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".MoviesByRatingActivity">
-            <intent-filter>
-                <action android:name="com.example.joyrasmussen.hw2_group34.intent.action.VIEWBYRATING"></action>
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".EditMovie" android:label="@string/editIntent"></activity>
     </application>
 
 </manifest>

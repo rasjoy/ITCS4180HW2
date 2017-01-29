@@ -42,7 +42,8 @@
         android:ems="10"
         android:layout_below="@+id/AddButton"
         android:layout_alignLeft="@+id/AddButton"
-        android:layout_alignStart="@+id/AddButton" />
+        android:layout_alignStart="@+id/AddButton"
+        android:onClick="editMovieListenerz"/>
 
     <Button
         android:text="@string/Delete_text"

@@ -1,18 +1,27 @@
 package com.example.joyrasmussen.hw2_group34;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
+import android.app.AlertDialog.Builder;
+
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Movie> movieList; //Declare as ArrayList
+    public final static int REQ_CODE_ADD = 100;
+    public final static String MOVIE_LIST = "movieList";
+    public final static String MOVIE = "Movie";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         movieList = new ArrayList<Movie>();
+
         movieList.add(new Movie("Space Jam", "So 90s", "Comedy","www.imbd.com", 1996, 5));
         movieList.add(new Movie("Toy Story", "There are toys","Other", "www.imdb.com", 1995, 4));
         movieList.add(new Movie("Finding Nemo","Just keep swimming", "Comedy", "www.imdb.com", 2003, 3));
@@ -24,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void onAddClickListener(View v){
         Intent addIntent = new Intent(MainActivity.this, AddMovie.class);
-        startActivity(addIntent);
+        addIntent.putExtra(MOVIE_LIST, movieList);
+        startActivityForResult(addIntent,REQ_CODE_ADD);
 
 
     }
@@ -44,4 +54,36 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("movieList", movieList);
         startActivity(i);
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQ_CODE_ADD){
+            if(resultCode == RESULT_OK){
+                Movie addMe = data.getExtras().getParcelable(MOVIE);
+                movieList.add(addMe);
+                Toast.makeText(this,  addMe.getName() + "was added", Toast.LENGTH_LONG).show();
+            }
+
+
+        }
+    }
+
+    public void editMovieListenerz(View v){
+        ArrayList<String> titles = new ArrayList<String>();
+        int index = 0;
+        for(Movie mov : movieList){
+            titles.add(mov.getName());
+
+        }
+
+        AlertDialog.Builder editThese = new AlertDialog.Builder(MainActivity.this);
+        editThese.setTitle(R.string.editDialog).setItems(titles.toArray(new CharSequence[titles.size()]), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.d("Stuff", "Stuff");
+
+            }
+        });
+       
+    }
+
 }
