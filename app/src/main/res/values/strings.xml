@@ -29,4 +29,5 @@
     <string name="yearIntent">Movie By Year</string>
     <string name="rateIntent">Movie By Rating</string>
     <string name="editDialog">Pick a Movie</string>
+    <string name="emptyList">No Favorite Movies</string>
 </resources>

@@ -54,7 +54,9 @@
         android:layout_below="@+id/EditButton"
         android:layout_alignLeft="@+id/EditButton"
         android:layout_alignStart="@+id/EditButton"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="18dp"
+        android:onClick="deleteListener"
+        />
 
     <Button
         android:text="@string/show_rat_text"

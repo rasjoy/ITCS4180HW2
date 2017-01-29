@@ -1,5 +1,7 @@
 package com.example.joyrasmussen.hw2_group34;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +12,10 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class EditMovie extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -25,6 +29,8 @@ public class EditMovie extends AppCompatActivity implements AdapterView.OnItemSe
     private ArrayList<Movie> movieList;
     private  String genreStr;
     private Movie toEdit;
+    private int index;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,8 @@ public class EditMovie extends AppCompatActivity implements AdapterView.OnItemSe
         seekVal = (TextView) findViewById(R.id.seekText2);
         genreStr = "";
         movieList = (ArrayList<Movie>) getIntent().getSerializableExtra(MainActivity.MOVIE_LIST);
-        toEdit =  getIntent().getParcelableExtra(MainActivity.MOVIE);
+        index = getIntent().getExtras().getInt(MainActivity.MOVIE);
+        toEdit = movieList.get(index);
 
 
         rating.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -60,7 +67,7 @@ public class EditMovie extends AppCompatActivity implements AdapterView.OnItemSe
             }
         });
 
-        year.setText(toEdit.getYear());
+        year.setText(Integer.toString(toEdit.getYear()));
         name.setText(toEdit.getName());
         description.setText(toEdit.getName());
         imdb.setText(toEdit.getImdb());
@@ -93,7 +100,7 @@ public class EditMovie extends AppCompatActivity implements AdapterView.OnItemSe
         adapter.add("Others");
         adapter.add("Select");
         genre.setAdapter(adapter);
-        genre.setSelection(adapter.getCount());
+        genre.setSelection(adapter.getPosition(toEdit.getGenre()));
         genre.setOnItemSelectedListener(this);
 
 
@@ -101,7 +108,54 @@ public class EditMovie extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
     public void editMovieListener(View v){
+        String nameStr = name.getText().toString();
 
+        String yrStr = year.getText().toString();
+        String imdbStr = imdb.getText().toString();
+        String descriptStr = description.getText().toString();
+
+
+        Pattern pattern = Pattern.compile("^(?:www\\.)?(?=(imdb\\.com))");
+
+
+        String toastMessage = nameStr == null || nameStr.isEmpty() ?  "Invalid Input, \nPlease provide a movie name." : "";
+
+        toastMessage += descriptStr.isEmpty() ? toastMessage.isEmpty() ?
+                "Invalid input, \nPlease provide a description." : "\nPlease provide a description."
+                : "";
+
+
+        toastMessage += genreStr.equals("Select") ? toastMessage.isEmpty() ? "Invalid input, \nPlease select a movie genre." : "\nPlease select a movie genre." : "";
+
+        toastMessage += yrStr.isEmpty() ? toastMessage.isEmpty() ? "Invalid input, \nPlease provide a year." : "\nPlease provide a year."
+                : yrStr.length() != 4 || Integer.parseInt(yrStr) < 1889 ?  toastMessage.isEmpty() ?
+                "Invalid input, \nPlease provide a year after movies were invented." : "\nPlease provide a year after movies were invented." : "";
+
+        int yr = Integer.parseInt(yrStr);
+
+        toastMessage += imdbStr.isEmpty() ? toastMessage.isEmpty() ?
+                "Invalid input, \nPlease provide a IMDB link." : "\nPlease provide a IMDB link." :
+                pattern.matcher(imdbStr).lookingAt() ? "" :"\nPlease provide a valid IMDB URL." ;
+
+
+        if(!toastMessage.isEmpty()){
+            Toast.makeText(this, toastMessage,Toast.LENGTH_LONG ).show();
+            return;
+        }
+        if(movieList.size() > 0 && !nameStr.equalsIgnoreCase(toEdit.getName()) && yr != toEdit.getYear()){
+            for(Movie mov: movieList){
+                if(yr == mov.getYear() && nameStr.equalsIgnoreCase(mov.getName())){
+                    Toast.makeText(this, "The movie " + nameStr + " made in " + yr + " is already in the database.\nPlease enter another movie or return to the Main Screen", Toast.LENGTH_LONG ).show();
+                    return;
+                }
+            }
+        }
+        int rate = rating.getProgress();
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra(MainActivity.MOVIE, (Parcelable) new Movie(nameStr, descriptStr, genreStr, imdbStr, yr, rate));
+        returnIntent.putExtra(MainActivity.EDIT_INDEX, index);
+        setResult(RESULT_OK, returnIntent);
+        finish();
 
 
 
