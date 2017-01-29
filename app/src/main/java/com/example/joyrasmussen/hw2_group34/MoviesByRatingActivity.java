@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -60,7 +61,8 @@ public class MoviesByRatingActivity extends AppCompatActivity {
     public void goToPrevious(View view){
 
         if(index == 0) {
-            index = movieList.size() - 1;
+            Toast.makeText(this, "This is the highest rated movie.", Toast.LENGTH_LONG).show();
+            return;
         } else {
             index--;
         }
@@ -72,7 +74,8 @@ public class MoviesByRatingActivity extends AppCompatActivity {
     public void goToNext(View view){
 
         if(index == movieList.size() -1){
-            index = 0;
+            Toast.makeText(this, "This is the lowest rated movie.", Toast.LENGTH_LONG).show();
+           return;
         } else {
             index++;
         }
