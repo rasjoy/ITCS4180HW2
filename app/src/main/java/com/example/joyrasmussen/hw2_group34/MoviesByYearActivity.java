@@ -33,7 +33,7 @@ public class MoviesByYearActivity extends AppCompatActivity {
 
         index = 0;
 
-        movieList = (ArrayList<Movie>) getIntent().getSerializableExtra("movieList");
+        movieList = (ArrayList<Movie>) getIntent().getSerializableExtra(MainActivity.MOVIE_LIST);
 
         Collections.sort(movieList, new Comparator<Movie>() {
             @Override

@@ -69,7 +69,7 @@ public class EditMovie extends AppCompatActivity implements AdapterView.OnItemSe
 
         year.setText(Integer.toString(toEdit.getYear()));
         name.setText(toEdit.getName());
-        description.setText(toEdit.getName());
+        description.setText(toEdit.getDescription());
         imdb.setText(toEdit.getImdb());
         rating.setProgress(toEdit.getRating());
 

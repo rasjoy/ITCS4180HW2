@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         if(!movieList.isEmpty()) {
             //Implicit intent creation
             Intent i = new Intent("com.example.joyrasmussen.hw2_group34.intent.action.VIEWBYYEAR");
-            i.putExtra("movieList", movieList);
+            i.putExtra(MOVIE_LIST, movieList);
             startActivity(i);
         }else{
             Toast.makeText(this, "There are no favorite movies to show", Toast.LENGTH_LONG).show();
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         //Implicit intent creation
         if(!movieList.isEmpty()) {
             Intent i = new Intent("com.example.joyrasmussen.hw2_group34.intent.action.VIEWBYRATING");
-            i.putExtra("movieList", movieList);
+            i.putExtra(MOVIE_LIST, movieList);
             startActivity(i);
         }else{
             Toast.makeText(this, "There are no favorite movies to show", Toast.LENGTH_LONG).show();
