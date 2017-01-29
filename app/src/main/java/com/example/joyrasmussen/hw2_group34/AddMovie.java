@@ -109,23 +109,21 @@ public class AddMovie extends AppCompatActivity  implements AdapterView.OnItemSe
         Pattern pattern = Pattern.compile("^(?:www\\.)?(?=(imdb\\.com))");
 
 
-        String toastMessage = nameStr == null || nameStr.isEmpty() ?  "Invalid Input, \nPlease provide a movie name." : "";
+        String toastMessage = nameStr == null || nameStr.isEmpty() ?  "Invalid input(s): \nPlease provide a movie name." : "";
 
         toastMessage += descriptStr.isEmpty() ? toastMessage.isEmpty() ?
-                "Invalid input, \nPlease provide a description." : "\nPlease provide a description."
+                "Invalid input(s): \nPlease provide a description." : "\nPlease provide a description."
                 : "";
 
 
-        toastMessage += genreStr.equals("Select") ? toastMessage.isEmpty() ? "Invalid input, \nPlease select a movie genre." : "\nPlease select a movie genre." : "";
+        toastMessage += genreStr.equals("Select") ? toastMessage.isEmpty() ? "Invalid input(s): \nPlease select a movie genre." : "\nPlease select a movie genre." : "";
 
-        toastMessage += yrStr.isEmpty() ? toastMessage.isEmpty() ? "Invalid input, \nPlease provide a year." : "\nPlease provide a year."
+        toastMessage += yrStr.isEmpty() ? toastMessage.isEmpty() ? "Invalid input(s): \nPlease provide a year." : "\nPlease provide a year."
                 : yrStr.length() != 4 || Integer.parseInt(yrStr) < 1889 ?  toastMessage.isEmpty() ?
-                "Invalid input, \nPlease provide a year after movies were invented." : "\nPlease provide a year after movies were invented." : "";
-
-        int yr = Integer.parseInt(yrStr);
+                "Invalid input(s): \nPlease provide a year after movies were invented." : "\nPlease provide a year after movies were invented." : "";
 
         toastMessage += imdbStr.isEmpty() ? toastMessage.isEmpty() ?
-                "Invalid input, \nPlease provide a IMDB link." : "\nPlease provide a IMDB link." :
+                "Invalid input(s): \nPlease provide a IMDB link." : "\nPlease provide a IMDB link." :
                 pattern.matcher(imdbStr).lookingAt() ? "" :"\nPlease provide a valid IMDB URL." ;
 
 
@@ -133,6 +131,8 @@ public class AddMovie extends AppCompatActivity  implements AdapterView.OnItemSe
             Toast.makeText(this, toastMessage,Toast.LENGTH_LONG ).show();
             return;
         }
+
+        int yr = Integer.parseInt(yrStr);
         if(movieList.size() > 0){
             for(Movie mov: movieList){
                 if(yr == mov.getYear() && nameStr.equalsIgnoreCase(mov.getName())){
