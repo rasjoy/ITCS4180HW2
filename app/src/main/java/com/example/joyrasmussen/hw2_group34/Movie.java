@@ -4,10 +4,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.io.Serializable;
-
 /**
- * Created by joyrasmussen on 1/24/17.
+ * Assignment HW2
+ * Group 34
+ * Group Members:  Robert Holt and Joy Rasmussen
+ * filename: Movie.java
  */
+
 
 public class Movie implements  Serializable, Parcelable{
 

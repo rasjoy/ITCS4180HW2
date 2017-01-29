@@ -10,7 +10,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
+/**
+ * Assignment HW2
+ * Group 34
+ * Group Members:  Robert Holt and Joy Rasmussen
+ * filename: MoviesByRatingActivity.java
+ */
 public class MoviesByRatingActivity extends AppCompatActivity {
 
     ArrayList<Movie> movieList;

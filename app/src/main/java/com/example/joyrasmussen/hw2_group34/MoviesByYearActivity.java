@@ -12,6 +12,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Assignment HW2
+ * Group 34
+ * Group Members:  Robert Holt and Joy Rasmussen
+ * filename: MoviesByYearActivity.java
+ */
 public class MoviesByYearActivity extends AppCompatActivity {
 
     ArrayList<Movie> movieList;

@@ -1,3 +1,4 @@
+
 package com.example.joyrasmussen.hw2_group34;
 
 import android.content.DialogInterface;
@@ -5,13 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import android.app.AlertDialog.Builder;
 
+/**
+ *  Assignment HW2
+ * Group 34
+ * Group Members:  Robert Holt and Joy Rasmussen
+ * filename: MainActivity.java
+ */
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Movie> movieList; //Declare as ArrayList
@@ -23,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         movieList = new ArrayList<Movie>();
+/*
 
         movieList.add(new Movie("Space Jam", "So 90s", "Comedy","www.imbd.com", 1996, 5));
         movieList.add(new Movie("Toy Story", "There are toys","Other", "www.imdb.com", 1995, 4));
         movieList.add(new Movie("Finding Nemo","Just keep swimming", "Comedy", "www.imdb.com", 2003, 3));
         movieList.add(new Movie("Star Wars: Episode 1 - the Phantom Menace", "This movie should have never been made", "Action", "www.imdb.com", 1999, 1));
+*/
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

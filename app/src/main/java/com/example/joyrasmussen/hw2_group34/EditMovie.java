@@ -1,3 +1,5 @@
+
+
 package com.example.joyrasmussen.hw2_group34;
 
 import android.content.Intent;
@@ -16,7 +18,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
-
+/**
+ *  Assignment HW2
+ * Group 34
+ * Group Members:  Robert Holt and Joy Rasmussen
+ * filename: EditMovie.java
+ */
 public class EditMovie extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText year;
